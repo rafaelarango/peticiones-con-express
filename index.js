@@ -7,10 +7,16 @@ const app = express();
 app.use(bodyParser.json());
 
 
-app.post('/post',(req, res) => {
-    post.push(req.body)
-    res.status(201).json(post)
-} )
+app.patch('/post:id',(req, res) => {
+    const nuevoPost = post.map(elemento => {
+        if(elemento.id == req.params.id){
+            elemento = req.body
+        }else{
+            return elemento
+        }
+    })
+    res.status(200).json(nuevoPost)
+})
 
 
 
