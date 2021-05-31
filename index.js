@@ -7,6 +7,11 @@ const app = express();
 app.use(bodyParser.json());
 
 
+app.get('/post',(req, res) => {
+    res.status(200).json(post)
+} )
+
+
 
 
 // Configuramos el servidor
