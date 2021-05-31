@@ -7,8 +7,9 @@ const app = express();
 app.use(bodyParser.json());
 
 
-app.get('/post',(req, res) => {
-    res.status(200).json(post)
+app.post('/post',(req, res) => {
+    post.push(req.body)
+    res.status(201).json(post)
 } )
 
 
